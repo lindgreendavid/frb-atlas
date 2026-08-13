@@ -38,6 +38,12 @@ def test_build_registry_schema(sample_catalog_csv: Path) -> None:
         assert 0.0 <= comparison["ks"]["p_value"] <= 1.0
         assert comparison["ks"]["alpha"] == 0.05
 
+    distributions = registry["distributions"]
+    assert len(distributions["dm_exc_ne2001"]["repeater"]) == 5
+    assert len(distributions["dm_exc_ne2001"]["non_repeater"]) == 10
+    assert len(distributions["width_fitb"]["repeater"]) == 5
+    assert len(distributions["bandwidth"]["non_repeater"]) == 10
+
 
 def test_registry_generation_script_matches_frozen_registry() -> None:
     """The committed reports/v0.1-frb-registry.json must be byte-reproducible."""

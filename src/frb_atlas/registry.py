@@ -157,5 +157,19 @@ def build_registry(catalog_path: Path) -> dict[str, Any]:
                 bandwidth_non_repeaters_full,
             ),
         },
+        "distributions": {
+            "dm_exc_ne2001": {
+                "repeater": _dm(repeaters, "dm_exc_ne2001"),
+                "non_repeater": _dm(non_repeaters, "dm_exc_ne2001"),
+            },
+            "width_fitb": {
+                "repeater": width_repeaters_full,
+                "non_repeater": width_non_repeaters_full,
+            },
+            "bandwidth": {
+                "repeater": bandwidth_repeaters_full,
+                "non_repeater": bandwidth_non_repeaters_full,
+            },
+        },
     }
     return registry
