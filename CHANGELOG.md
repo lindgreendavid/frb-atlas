@@ -3,7 +3,12 @@
 All notable changes to this project are documented here. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [Unreleased]
+## [1.0.0] - 2026-08-13
+
+### Added
+
+- Stable product release around the unchanged frozen v0.1 catalog study.
+- Release audit of the 536-row source, exclusions, uncertainty and published comparisons.
 
 ### Fixed
 

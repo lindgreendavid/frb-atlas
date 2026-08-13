@@ -9,6 +9,8 @@ bursts differ in dispersion measure, pulse width, and spectral bandwidth?
 
 **[Open the live interactive atlas](https://frb-atlas-interactive.lindgreendavid.workers.dev)** · **[Read the plain-language write-up](https://blog-interactive.lindgreendavid.workers.dev/posts/frb-atlas-dispersion-measure)**
 
+**Stable product release:** [v1.0.0](https://github.com/lindgreendavid/frb-atlas/releases/tag/v1.0.0) · **Study:** unchanged frozen v0.1 registry.
+
 **Research question:** using the real, published CHIME/FRB Catalog 1 data (536 fast radio
 bursts, Amiri et al. 2021), do repeating and apparently non-repeating bursts differ in
 dispersion measure (DM), intrinsic pulse width, and spectral bandwidth? The original catalog
