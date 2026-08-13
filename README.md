@@ -3,7 +3,7 @@
 A reproducible reanalysis of CHIME/FRB Catalog 1: do repeating and non-repeating fast radio
 bursts differ in dispersion measure, pulse width, and spectral bandwidth?
 
-**[Open the live interactive atlas](https://frb-atlas-interactive.lindgreendavid.workers.dev)**
+**[Open the live interactive atlas](https://frb-atlas-interactive.lindgreendavid.workers.dev)** · **[Read the plain-language write-up](https://blog-interactive.lindgreendavid.workers.dev/posts/frb-atlas-dispersion-measure)**
 
 **Research question:** using the real, published CHIME/FRB Catalog 1 data (536 fast radio
 bursts, Amiri et al. 2021), do repeating and apparently non-repeating bursts differ in
