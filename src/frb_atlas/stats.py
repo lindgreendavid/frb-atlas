@@ -8,6 +8,7 @@ median difference between groups.
 
 from __future__ import annotations
 
+import warnings
 from dataclasses import dataclass
 
 import numpy as np
@@ -60,7 +61,16 @@ def anderson_darling_two_sample(a: list[float], b: list[float]) -> AndersonResul
     that range are clipped by scipy itself, which is disclosed here rather
     than silently relied upon.
     """
-    result = scipy_stats.anderson_ksamp([a, b])
+    with warnings.catch_warnings():
+        # SciPy deliberately floors extremely small p-values at 0.001 when
+        # no permutation method is supplied. That behavior is disclosed in
+        # this function's contract and recorded in the frozen registry.
+        warnings.filterwarnings(
+            "ignore",
+            message="p-value floored:*",
+            category=UserWarning,
+        )
+        result = scipy_stats.anderson_ksamp([a, b], variant="midrank")
     p_value = float(result.pvalue)
     return AndersonResult(
         statistic=float(result.statistic),

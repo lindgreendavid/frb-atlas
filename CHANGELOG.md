@@ -3,6 +3,18 @@
 All notable changes to this project are documented here. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [Unreleased]
+
+### Fixed
+
+- Hardened the transitive `image-size` parsers against malformed ICNS and ISO-BMFF input,
+  added executable security regression probes, and kept the production audit strict for every
+  other high-severity advisory.
+- Made frozen-registry verification portable across operating systems by comparing floating-point
+  values with a narrow numerical tolerance while retaining exact checks for all other data.
+- Scoped the Anderson-Darling p-value-floor warning to the documented statistical call and aligned
+  the Cloudflare compatibility date with the pinned runtime.
+
 ## [0.1.0] - 2026-08-13
 
 ### Added
