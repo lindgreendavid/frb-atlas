@@ -1,0 +1,33 @@
+{
+  "dataset": "CHIME/FRB Catalog 1",
+  "primary_citation": "CHIME/FRB Collaboration (M. Amiri et al.) 2021, \"The First CHIME/FRB Fast Radio Burst Catalog,\" The Astrophysical Journal Supplement Series, 257, 59",
+  "primary_doi": "10.3847/1538-4365/ac33ab",
+  "primary_arxiv": "arXiv:2106.04352",
+  "erratum_citation": "CHIME/FRB Collaboration 2023, \"Erratum: 'The First CHIME/FRB Fast Radio Burst Catalog' (2021, ApJS, 257, 59),\" ApJS, 264, 53",
+  "erratum_doi": "10.3847/1538-4365/acb54c",
+  "erratum_summary": "Corrects a normalization bug and a selection-criteria bug in the all-sky burst rate calculation (Section 6.2 only): rate revised from 820(+220/-200) to 525(+142/-131) bursts/sky/day. Does not mention any correction to per-burst catalog columns (DM, width, spectral index, sky position, repeater flag). This project does not use the all-sky rate and is unaffected by the erratum.",
+  "provider": "CDS VizieR (mirror of the published catalog table)",
+  "source_table": "J/ApJS/257/59/table2",
+  "source_url": "https://vizier.cds.unistra.fr/viz-bin/asu-tsv?-source=J/ApJS/257/59/table2&-out.max=9999&-out.form=tsv&-out.all",
+  "official_site_note": "chime-frb.ca / chime-frb-open-data.github.io was reported temporarily unavailable ('rebuilding') during data-access research for this project; VizieR was used as a stable, standard archive mirror instead.",
+  "cfod_package_note": "The official 'cfod' Python package (chime-frb-open-data/chime-frb-open-data) only parses an already-downloaded local catalog file; it does not itself fetch or bundle Catalog 1 data, so it could not be used as the fetch mechanism.",
+  "accessed": "2026-08-13",
+  "verification": {
+    "method": "structural, not a fixed byte checksum, because VizieR's plain-text response embeds a per-request timestamp comment that changes on every fetch",
+    "checks": [
+      "exactly 536 rows with sub_num == 0 (one row per catalog burst)",
+      "exactly 536 unique tns_name values among those rows",
+      "exactly 62 of those rows have a non-empty repeater_name",
+      "those 62 repeater bursts are drawn from exactly 18 unique repeater sources"
+    ],
+    "result": "all four checks passed; matches the paper abstract's '536 ... including 62 bursts from 18 previously known repeating sources' exactly",
+    "enforced_by": "scripts/fetch_catalog.py aborts the fetch if any check fails"
+  },
+  "license": "No formal open-data license is stated by the official CHIME/FRB site; it permits use in publications with citation of the relevant CHIME/FRB Collaboration papers. VizieR distributes CDS-hosted catalogs under its standard research-use terms.",
+  "raw_file_committed": false,
+  "raw_file_reason": "No confirmed open redistribution license; the raw catalog is re-downloaded at reproduction time by scripts/fetch_catalog.py and written to data/external/ (gitignored), matching this maintainer's Fairshift Lab pattern.",
+  "row_count": 536,
+  "repeater_bursts": 62,
+  "repeater_sources": 18,
+  "excluded_flag_note": "39 of the 536 bursts have excluded_flag == 1 (excluded from parameter inference due to non-nominal telescope operation per the catalog's own ReadMe Note 6). This project drops those 39 from all statistical comparisons; see docs/research-protocol.md."
+}
