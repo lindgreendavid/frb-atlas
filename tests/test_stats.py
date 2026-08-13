@@ -1,5 +1,10 @@
 from __future__ import annotations
 
+from types import SimpleNamespace
+
+import pytest
+
+from frb_atlas import stats
 from frb_atlas.stats import (
     anderson_darling_two_sample,
     bootstrap_median_diff,
@@ -29,6 +34,26 @@ def test_anderson_darling_clearly_different_significant() -> None:
     result = anderson_darling_two_sample(a, b)
     assert result.significant is True
     assert result.p_value <= 0.05
+
+
+def test_anderson_darling_supports_legacy_scipy_keyword(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    calls: list[dict[str, object]] = []
+
+    def legacy_anderson_ksamp(samples: list[list[float]], **kwargs: object) -> SimpleNamespace:
+        assert len(samples) == 2
+        calls.append(kwargs)
+        if "variant" in kwargs:
+            raise TypeError("unexpected keyword argument 'variant'")
+        assert kwargs == {"midrank": True}
+        return SimpleNamespace(statistic=2.0, pvalue=0.01)
+
+    monkeypatch.setattr(stats.scipy_stats, "anderson_ksamp", legacy_anderson_ksamp)
+    result = anderson_darling_two_sample([1.0, 2.0], [10.0, 20.0])
+
+    assert calls == [{"variant": "midrank"}, {"midrank": True}]
+    assert result.significant is True
 
 
 def test_bootstrap_median_diff_deterministic_given_seed() -> None:

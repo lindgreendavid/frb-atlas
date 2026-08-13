@@ -70,7 +70,12 @@ def anderson_darling_two_sample(a: list[float], b: list[float]) -> AndersonResul
             message="p-value floored:*",
             category=UserWarning,
         )
-        result = scipy_stats.anderson_ksamp([a, b], variant="midrank")
+        try:
+            result = scipy_stats.anderson_ksamp([a, b], variant="midrank")
+        except TypeError:
+            # SciPy releases available on Python 3.10 use the older boolean
+            # spelling for the same midrank variant.
+            result = scipy_stats.anderson_ksamp([a, b], midrank=True)
     p_value = float(result.pvalue)
     return AndersonResult(
         statistic=float(result.statistic),

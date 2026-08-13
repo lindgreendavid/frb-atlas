@@ -12,8 +12,9 @@ All notable changes to this project are documented here. Format loosely follows
   other high-severity advisory.
 - Made frozen-registry verification portable across operating systems by comparing floating-point
   values with a narrow numerical tolerance while retaining exact checks for all other data.
-- Scoped the Anderson-Darling p-value-floor warning to the documented statistical call and aligned
-  the Cloudflare compatibility date with the pinned runtime.
+- Scoped the Anderson-Darling p-value-floor warning to the documented statistical call, retained
+  the equivalent API spelling used by older supported SciPy releases, and aligned the Cloudflare
+  compatibility date with the pinned runtime.
 
 ## [0.1.0] - 2026-08-13
 
