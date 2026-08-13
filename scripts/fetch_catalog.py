@@ -76,7 +76,7 @@ EXPECTED_REPEATER_SOURCES = 18
 
 
 def _download(url: str) -> str:
-    with urllib.request.urlopen(url, timeout=60) as response:  # noqa: S310
+    with urllib.request.urlopen(url, timeout=60) as response:
         return response.read().decode("utf-8")
 
 

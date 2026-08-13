@@ -1,0 +1,36 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below. Please also cite the underlying CHIME/FRB Catalog 1 data separately (see data/provenance.json)."
+title: "FRB Atlas"
+type: software
+version: 0.1.0
+date-released: 2026-08-13
+authors:
+  - family-names: Lindgreen
+    given-names: David
+repository-code: "https://github.com/lindgreendavid/frb-atlas"
+license: MIT
+keywords:
+  - fast radio bursts
+  - CHIME/FRB
+  - astrostatistics
+  - radio astronomy
+  - reproducible research
+references:
+  - type: article
+    title: "The First CHIME/FRB Fast Radio Burst Catalog"
+    authors:
+      - name: "CHIME/FRB Collaboration"
+    year: 2021
+    journal: "The Astrophysical Journal Supplement Series"
+    volume: 257
+    issue: 2
+    doi: "10.3847/1538-4365/ac33ab"
+  - type: article
+    title: "Erratum: \"The First CHIME/FRB Fast Radio Burst Catalog\" (2021, ApJS, 257, 59)"
+    authors:
+      - name: "CHIME/FRB Collaboration"
+    year: 2023
+    journal: "The Astrophysical Journal Supplement Series"
+    volume: 264
+    issue: 2
+    doi: "10.3847/1538-4365/acb54c"

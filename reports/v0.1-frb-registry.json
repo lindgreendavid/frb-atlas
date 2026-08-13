@@ -1,0 +1,278 @@
+{
+  "catalog": {
+    "analyzed_bursts": 497,
+    "excluded_bursts": 39,
+    "non_repeater_bursts": 438,
+    "repeater_bursts": 59,
+    "repeater_sources": 18,
+    "total_bursts": 536
+  },
+  "comparisons": {
+    "bandwidth": {
+      "anderson_darling": {
+        "alpha": 0.05,
+        "p_value": 0.001,
+        "significant": true,
+        "statistic": 46.06070448984883
+      },
+      "bootstrap": {
+        "ci_95_high": 201.1037499999999,
+        "ci_95_low": 105.09875000000002,
+        "median_diff_non_repeater_minus_repeater": 140.10000000000002,
+        "median_non_repeater": 346.1,
+        "median_repeater": 206.0,
+        "resamples": 10000,
+        "seed": 20260813
+      },
+      "ks": {
+        "alpha": 0.05,
+        "p_value": 1.250350331738438e-13,
+        "significant": true,
+        "statistic": 0.5222892964940794
+      },
+      "label": "Spectral bandwidth (high_freq - low_freq), all analyzed bursts",
+      "n_non_repeater": 438,
+      "n_repeater": 59
+    },
+    "bandwidth_excluding_width_limits": {
+      "anderson_darling": {
+        "alpha": 0.05,
+        "p_value": 0.001,
+        "significant": true,
+        "statistic": 47.800001727482865
+      },
+      "bootstrap": {
+        "ci_95_high": 210.2,
+        "ci_95_low": 110.89999999999998,
+        "median_diff_non_repeater_minus_repeater": 145.5,
+        "median_non_repeater": 351.5,
+        "median_repeater": 206.0,
+        "resamples": 10000,
+        "seed": 20260813
+      },
+      "ks": {
+        "alpha": 0.05,
+        "p_value": 6.414803783590092e-14,
+        "significant": true,
+        "statistic": 0.5293036552991628
+      },
+      "label": "Spectral bandwidth, excluding bursts with an upper-limit-flagged width",
+      "n_non_repeater": 415,
+      "n_repeater": 59
+    },
+    "bandwidth_first_detection_per_source": {
+      "anderson_darling": {
+        "alpha": 0.05,
+        "p_value": 0.001,
+        "significant": true,
+        "statistic": 14.841744877239405
+      },
+      "bootstrap": {
+        "ci_95_high": 219.40124999999995,
+        "ci_95_low": 101.9,
+        "median_diff_non_repeater_minus_repeater": 133.60000000000005,
+        "median_non_repeater": 346.1,
+        "median_repeater": 212.49999999999997,
+        "resamples": 10000,
+        "seed": 20260813
+      },
+      "ks": {
+        "alpha": 0.05,
+        "p_value": 9.778358600924007e-07,
+        "significant": true,
+        "statistic": 0.6126331811263318
+      },
+      "label": "POST-HOC (not preregistered): spectral bandwidth using only each repeating source's first-detected burst",
+      "n_non_repeater": 438,
+      "n_repeater": 18
+    },
+    "dm_exc_ne2001_first_detection_per_source": {
+      "anderson_darling": {
+        "alpha": 0.05,
+        "p_value": 0.02647029581064795,
+        "significant": true,
+        "statistic": 2.6609234013028087
+      },
+      "bootstrap": {
+        "ci_95_high": 279.04999999999995,
+        "ci_95_low": 50.944999999999936,
+        "median_diff_non_repeater_minus_repeater": 151.54999999999995,
+        "median_non_repeater": 510.65,
+        "median_repeater": 359.1,
+        "resamples": 10000,
+        "seed": 20260813
+      },
+      "ks": {
+        "alpha": 0.05,
+        "p_value": 0.04079305826985081,
+        "significant": true,
+        "statistic": 0.32420091324200906
+      },
+      "label": "POST-HOC (not preregistered): DM excess (NE2001) using only each repeating source's first-detected burst, reproducing the original paper's own deduplication method instead of this project's preregistered burst-level comparison",
+      "n_non_repeater": 438,
+      "n_repeater": 18
+    },
+    "dm_exc_ne2001_primary": {
+      "anderson_darling": {
+        "alpha": 0.05,
+        "p_value": 0.001,
+        "significant": true,
+        "statistic": 36.61915331689182
+      },
+      "bootstrap": {
+        "ci_95_high": 389.40000000000003,
+        "ci_95_low": 167.35000000000002,
+        "median_diff_non_repeater_minus_repeater": 353.65,
+        "median_non_repeater": 510.65,
+        "median_repeater": 157.0,
+        "resamples": 10000,
+        "seed": 20260813
+      },
+      "ks": {
+        "alpha": 0.05,
+        "p_value": 2.045747890112456e-10,
+        "significant": true,
+        "statistic": 0.45739493847225454
+      },
+      "label": "Milky Way-subtracted DM excess (NE2001 model), primary measure",
+      "n_non_repeater": 438,
+      "n_repeater": 59
+    },
+    "dm_exc_ymw16_secondary": {
+      "anderson_darling": {
+        "alpha": 0.05,
+        "p_value": 0.001,
+        "significant": true,
+        "statistic": 50.646377370753385
+      },
+      "bootstrap": {
+        "ci_95_high": 454.9,
+        "ci_95_low": 197.9925,
+        "median_diff_non_repeater_minus_repeater": 334.1,
+        "median_non_repeater": 498.70000000000005,
+        "median_repeater": 164.6,
+        "resamples": 10000,
+        "seed": 20260813
+      },
+      "ks": {
+        "alpha": 0.05,
+        "p_value": 8.083606424597938e-12,
+        "significant": true,
+        "statistic": 0.4869592136831515
+      },
+      "label": "Milky Way-subtracted DM excess (YMW16 model), secondary/robustness measure",
+      "n_non_repeater": 438,
+      "n_repeater": 59
+    },
+    "dm_fitb_secondary": {
+      "anderson_darling": {
+        "alpha": 0.05,
+        "p_value": 0.001,
+        "significant": true,
+        "statistic": 24.749313006849587
+      },
+      "bootstrap": {
+        "ci_95_high": 268.53400000000005,
+        "ci_95_low": 184.56045000000012,
+        "median_diff_non_repeater_minus_repeater": 223.10399999999993,
+        "median_non_repeater": 572.8136,
+        "median_repeater": 349.7096,
+        "resamples": 10000,
+        "seed": 20260813
+      },
+      "ks": {
+        "alpha": 0.05,
+        "p_value": 2.0123954106584867e-11,
+        "significant": true,
+        "statistic": 0.4789103010602895
+      },
+      "label": "Raw fitburst DM, secondary/robustness measure",
+      "n_non_repeater": 438,
+      "n_repeater": 59
+    },
+    "width_fitb": {
+      "anderson_darling": {
+        "alpha": 0.05,
+        "p_value": 0.001,
+        "significant": true,
+        "statistic": 28.06956983101244
+      },
+      "bootstrap": {
+        "ci_95_high": -0.0008100000000000002,
+        "ci_95_low": -0.00167,
+        "median_diff_non_repeater_minus_repeater": -0.001068,
+        "median_non_repeater": 0.000932,
+        "median_repeater": 0.002,
+        "resamples": 10000,
+        "seed": 20260813
+      },
+      "ks": {
+        "alpha": 0.05,
+        "p_value": 2.427283264784707e-09,
+        "significant": true,
+        "statistic": 0.43297732373655284
+      },
+      "label": "Intrinsic pulse width (fitburst), all analyzed bursts",
+      "n_non_repeater": 438,
+      "n_repeater": 59
+    },
+    "width_fitb_excluding_limits": {
+      "anderson_darling": {
+        "alpha": 0.05,
+        "p_value": 0.001,
+        "significant": true,
+        "statistic": 26.617563238496032
+      },
+      "bootstrap": {
+        "ci_95_high": -0.0007699999999999999,
+        "ci_95_low": -0.001647075,
+        "median_diff_non_repeater_minus_repeater": -0.00103,
+        "median_non_repeater": 0.00097,
+        "median_repeater": 0.002,
+        "resamples": 10000,
+        "seed": 20260813
+      },
+      "ks": {
+        "alpha": 0.05,
+        "p_value": 5.948219905406919e-09,
+        "significant": true,
+        "statistic": 0.4252807841535635
+      },
+      "label": "Intrinsic pulse width (fitburst), excluding upper-limit-flagged widths",
+      "n_non_repeater": 415,
+      "n_repeater": 59
+    },
+    "width_fitb_first_detection_per_source": {
+      "anderson_darling": {
+        "alpha": 0.05,
+        "p_value": 0.001,
+        "significant": true,
+        "statistic": 6.738483865559813
+      },
+      "bootstrap": {
+        "ci_95_high": -0.000492,
+        "ci_95_low": -0.0018279999999999998,
+        "median_diff_non_repeater_minus_repeater": -0.0008774999999999999,
+        "median_non_repeater": 0.000932,
+        "median_repeater": 0.0018095,
+        "resamples": 10000,
+        "seed": 20260813
+      },
+      "ks": {
+        "alpha": 0.05,
+        "p_value": 0.0006164352237858612,
+        "significant": true,
+        "statistic": 0.46499238964992384
+      },
+      "label": "POST-HOC (not preregistered): pulse width using only each repeating source's first-detected burst",
+      "n_non_repeater": 438,
+      "n_repeater": 18
+    }
+  },
+  "schema_version": 1,
+  "settings": {
+    "alpha": 0.05,
+    "bootstrap_resamples": 10000,
+    "bootstrap_seed": 20260813
+  }
+}
