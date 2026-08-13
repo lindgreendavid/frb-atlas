@@ -1,5 +1,9 @@
 # FRB Atlas
 
+<p><a href="https://github.com/lindgreendavid/lindgreendavid/tree/main/brand"><img src="https://raw.githubusercontent.com/lindgreendavid/lindgreendavid/main/brand/lab-notes-mark.svg" width="52" align="right" alt="Lab Notes research-cycle mark"></a></p>
+
+**Part of the [Lab Notes Research Portfolio](https://blog-interactive.lindgreendavid.workers.dev/)** · Astrophysics · Question → evidence → finding → boundary
+
 A reproducible reanalysis of CHIME/FRB Catalog 1: do repeating and non-repeating fast radio
 bursts differ in dispersion measure, pulse width, and spectral bandwidth?
 
