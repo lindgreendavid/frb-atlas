@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "frb_atlas"
-version = "0.1.0"
+version = "1.0.0"
 description = "A reproducible reanalysis of CHIME/FRB Catalog 1: repeater vs. non-repeater burst statistics"
 readme = "README.md"
 requires-python = ">=3.10"

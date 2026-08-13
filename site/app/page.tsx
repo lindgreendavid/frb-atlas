@@ -33,7 +33,7 @@ export default function Home() {
         <section className="hero">
           <div className="eyebrow">
             <span>CHIME/FRB Catalog 1 reanalysis</span>
-            <span>v0.1.0 · preregistered · frozen registry</span>
+            <span>Product v1.0.0 · preregistered frozen v0.1 registry</span>
           </div>
           <h1>
             Do repeaters look <em>different</em>?
@@ -377,7 +377,7 @@ export default function Home() {
           <span className="brand__mark" aria-hidden="true">
             ))
           </span>
-          <p>FRB Atlas v0.1.0 · MIT licensed · data used per CHIME/FRB Collaboration terms</p>
+          <p>FRB Atlas product v1.0.0 · frozen v0.1 study · MIT licensed · data used per CHIME/FRB Collaboration terms</p>
         </div>
         <a href="https://github.com/lindgreendavid/frb-atlas/blob/main/ACCESSIBILITY.md">
           Accessibility statement
