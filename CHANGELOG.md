@@ -3,6 +3,13 @@
 All notable changes to this project are documented here. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [Unreleased]
+
+### Changed
+
+- Bound the positive-control interpretation and add later CHIME/FRB source-level evidence that
+  supports a DM contrast while retaining sensitivity, exposure and population boundaries.
+
 ## [1.0.0] - 2026-08-13
 
 ### Added
