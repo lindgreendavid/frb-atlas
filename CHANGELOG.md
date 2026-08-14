@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+- Added an interactive DM analysis-unit and decision-threshold sensitivity explorer using only
+  the frozen registry results. It demonstrates how the preregistered burst-level test differs
+  from the disclosed first-detection-per-source check without altering the study or inventing
+  additional data.
+
 All notable changes to this project are documented here. Format loosely follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 

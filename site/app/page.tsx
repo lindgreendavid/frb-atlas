@@ -3,6 +3,7 @@ import type { Registry } from "./registry-types";
 import { EcdfChart } from "./ecdf-chart";
 import { ComparisonResult } from "./comparison-result";
 import { DistributionTable } from "./distribution-table";
+import { DmAnalysisExplorer } from "./dm-analysis-explorer";
 
 const registry = registryJson as unknown as Registry;
 const { catalog, comparisons, distributions } = registry;
@@ -22,6 +23,7 @@ export default function Home() {
         </div>
         <nav className="nav__links" aria-label="Primary">
           <a href="#dm-comparison">DM comparison</a>
+          <a href="#analysis-unit">Analysis unit</a>
           <a href="#validation">Width &amp; bandwidth</a>
           <a href="#decision">Findings</a>
           <a href="#method">Method</a>
@@ -147,6 +149,10 @@ export default function Home() {
             andersonDarling={comparisons.dm_exc_ne2001_primary.anderson_darling}
             bootstrap={comparisons.dm_exc_ne2001_primary.bootstrap}
             unit="pc/cm³"
+          />
+          <DmAnalysisExplorer
+            burstLevel={comparisons.dm_exc_ne2001_primary}
+            firstDetectionPerSource={comparisons.dm_exc_ne2001_first_detection_per_source}
           />
           <DistributionTable
             caption="DM excess (NE2001), repeater vs. non-repeater bursts"

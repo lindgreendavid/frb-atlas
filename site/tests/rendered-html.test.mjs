@@ -27,6 +27,10 @@ test("server-renders the finished research atlas", async () => {
   assert.match(html, /Scientific method/);
   assert.match(html, /Anderson-Darling/);
   assert.match(html, /post-hoc/i);
+  assert.match(html, /Change the unit\. Watch the conclusion change\./);
+  assert.match(html, /All 59 bursts/);
+  assert.match(html, /18 first detections/);
+  assert.match(html, /α = 0\.01/);
   assert.match(html, /Accessibility statement/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Starter Project/);
 });
@@ -43,6 +47,7 @@ test("ships accessible controls and research boundaries", async () => {
   assert.match(page, /Read this before any/);
   assert.match(styles, /prefers-contrast: more/);
   assert.match(styles, /forced-colors: active/);
+  assert.match(page, /DmAnalysisExplorer/);
   assert.match(styles, /\.nav__links a \{ display: inline-flex; min-height: 44px/);
   assert.match(layout, /FRB Atlas/);
   assert.doesNotMatch(packageJson, /react-loading-skeleton|drizzle/);
