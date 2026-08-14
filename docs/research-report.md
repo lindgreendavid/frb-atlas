@@ -85,14 +85,23 @@ this catalog.
 
 ## What H2's clean replication implies about H1
 
-H2 is exactly the "positive control" described in the protocol: it shows this pipeline can and
-does detect a real, published, significant effect on this same sample and grouping variable, at
-every disclosed sample definition (burst-level and per-source). That the primary DM test still
-finds a significant difference — and that the difference shrinks but does not fully vanish even
-under the paper's own deduplication — is therefore unlikely to be pure statistical noise or an
-underpowered test; it is a real, if partly sample-composition-driven, feature of this catalog's
-DM distributions as measured here. This project does not extend that observation into a claim
-about the physical DM properties of repeating vs. non-repeating FRB source populations.
+H2 is the protocol's positive control: recovering the published width and bandwidth directions
+shows that the pipeline can detect those catalog-level contrasts under the disclosed sample
+definitions. It does not prove that every H1 implementation choice matches the paper or that H1
+is free of selection bias. The DM difference is a reproducible feature of this project's burst-
+level analysis, but it shrinks sharply after source deduplication. This project does not extend
+that observation into a claim about the physical DM properties of repeating vs. non-repeating
+FRB source populations.
+
+## Evidence published after Catalog 1
+
+A later CHIME/FRB source-level study of 25 newly discovered repeaters reported significantly
+lower mean DM and extragalactic DM for repeaters (CHIME/FRB Collaboration 2023,
+[doi:10.3847/1538-4357/acc6c1](https://doi.org/10.3847/1538-4357/acc6c1)). That later result is
+directionally consistent with this project's burst-level contrast, but it does not retroactively
+validate the burst-level p-value: it uses a later source sample and explicitly requires sensitivity
+and exposure effects to be considered before physical interpretation. The literature therefore
+supports "sample- and selection-dependent evidence," not a settled two-population conclusion.
 
 ## Hypothesis dispositions
 
