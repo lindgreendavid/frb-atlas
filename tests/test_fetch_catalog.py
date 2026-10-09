@@ -78,3 +78,43 @@ def test_write_csv_round_trips(tmp_path: Path) -> None:
     text = output.read_text()
     assert "tns_name" in text.splitlines()[0]
     assert "FRB20180101A" in text
+
+
+class _FakeResponse:
+    def __enter__(self) -> _FakeResponse:
+        return self
+
+    def __exit__(self, *args: object) -> None:
+        return None
+
+    def read(self) -> bytes:
+        return b"ok"
+
+
+def test_download_retries_transient_failures_then_succeeds(monkeypatch) -> None:
+    calls = {"n": 0}
+
+    def flaky(url: str, timeout: int) -> _FakeResponse:
+        calls["n"] += 1
+        if calls["n"] < 3:
+            raise TimeoutError("read timed out")
+        return _FakeResponse()
+
+    monkeypatch.setattr(fetch_catalog.urllib.request, "urlopen", flaky)
+    monkeypatch.setattr(fetch_catalog.time, "sleep", lambda seconds: None)
+    assert fetch_catalog._download("https://example.invalid") == "ok"
+    assert calls["n"] == 3
+
+
+def test_download_gives_up_after_bounded_attempts(monkeypatch) -> None:
+    calls = {"n": 0}
+
+    def always_fail(url: str, timeout: int) -> _FakeResponse:
+        calls["n"] += 1
+        raise TimeoutError("read timed out")
+
+    monkeypatch.setattr(fetch_catalog.urllib.request, "urlopen", always_fail)
+    monkeypatch.setattr(fetch_catalog.time, "sleep", lambda seconds: None)
+    with pytest.raises(TimeoutError):
+        fetch_catalog._download("https://example.invalid")
+    assert calls["n"] == fetch_catalog.DOWNLOAD_ATTEMPTS

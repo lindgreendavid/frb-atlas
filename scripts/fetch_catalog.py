@@ -27,6 +27,7 @@ from __future__ import annotations
 import argparse
 import csv
 import sys
+import time
 import urllib.request
 from pathlib import Path
 
@@ -75,9 +76,21 @@ EXPECTED_REPEATER_BURSTS = 62
 EXPECTED_REPEATER_SOURCES = 18
 
 
+DOWNLOAD_ATTEMPTS = 4
+DOWNLOAD_BACKOFF_SECONDS = 5.0
+
+
 def _download(url: str) -> str:
-    with urllib.request.urlopen(url, timeout=60) as response:
-        return response.read().decode("utf-8")
+    """Download with a bounded retry: VizieR occasionally times out from CI runners."""
+    for attempt in range(1, DOWNLOAD_ATTEMPTS + 1):
+        try:
+            with urllib.request.urlopen(url, timeout=60) as response:
+                return response.read().decode("utf-8")
+        except OSError:
+            if attempt == DOWNLOAD_ATTEMPTS:
+                raise
+            time.sleep(DOWNLOAD_BACKOFF_SECONDS * attempt)
+    raise AssertionError("unreachable")
 
 
 def _parse_vizier_tsv(text: str) -> list[dict[str, str]]:
