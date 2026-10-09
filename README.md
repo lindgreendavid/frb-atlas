@@ -30,12 +30,16 @@ the paper cleanly** — repeaters in this sample show significantly narrower ban
 intrinsic pulse width than non-repeaters (p < 10⁻⁸ by Kolmogorov–Smirnov, robust to every
 variant tested). The DM comparison, on this project's preregistered burst-level test, does
 **not** replicate the paper's "no significant difference" finding — it finds a highly
-significant difference (p ≈ 2×10⁻¹⁰), most likely driven by two exceptionally prolific, nearby,
-low-DM repeaters supplying 90% of the repeater sample. A disclosed, non-preregistered follow-up
-that reproduces the paper's own per-source deduplication method shrinks this to a
-threshold-dependent, marginal result — closer to, but not a clean replication of, the paper's
-conclusion. Full reasoning, every hypothesis's disposition, and every limitation: see
+significant difference (p ≈ 2×10⁻¹⁰). A disclosed, non-preregistered diagnostic shows why: bursts from
+the same repeating source carry essentially the same DM (intraclass correlation 0.99999), so the 59 repeater
+bursts behave like about 7 independent observations. At the independent unit, the 18 sources, the difference
+is marginal (KS p = 0.041, Mann–Whitney p = 0.026), not significant at the paper's stricter p < 0.01 —
+closer to, but not a clean replication of, the paper's conclusion. (An earlier version of this README and the
+report wrongly attributed the discrepancy to two sources supplying 90% of the bursts; the true share is 46%.
+See the erratum in the report.) Full reasoning, every hypothesis's disposition, and every limitation: see
 [`docs/research-report.md`](docs/research-report.md).
+
+**Paper:** [Counting Sources, Not Bursts (PDF)](paper/paper.pdf) · [citation and status](paper/README.md) · [version history](history.md)
 
 ## What this contributes
 
@@ -46,7 +50,7 @@ conclusion. Full reasoning, every hypothesis's disposition, and every limitation
   and bandwidth replicate cleanly, DM does not at burst level, and the investigation into *why*
   is reported in full rather than hidden.)
 - An honest discrepancy, investigated and disclosed rather than quietly explained away: the DM
-  finding's likely cause (pseudo-replication from two prolific nearby repeaters) is reported as a
+  finding's measured cause (source clustering: bursts from one source share its DM) is reported as a
   disclosed, clearly-labeled post-hoc amendment — not folded silently into the preregistered
   result.
 - A real internal validity check: the width/bandwidth replication acts as a positive control,

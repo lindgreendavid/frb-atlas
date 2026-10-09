@@ -5,6 +5,14 @@ actually shows, compared against the preregistered hypotheses in
 [`research-protocol.md`](research-protocol.md), reported without suppressing an adverse or
 unexpected result.
 
+> **Erratum (2026-10-09).** An earlier version of this report said that two prolific repeaters (FRB 20180916B
+> and FRB 20180814A) contributed 33 and 20 of the 59 repeater bursts, i.e. 90% of the repeater sample, and named
+> that as the likely driver of the H1 discrepancy. **That count was wrong.** Recounting from the verified catalog
+> gives 19 and 8 bursts, i.e. 27 of 59 (46%). No registry value, test statistic or hypothesis disposition changes
+> (the frozen registry regenerates identically). The explanation is replaced below by a measured one: bursts
+> from the same repeating source carry essentially the same DM excess (intraclass correlation 0.99999), so the
+> 59-burst DM test has an effective sample size of about 7 (see "Why this discrepancy exists" and Amendment 2).
+
 ## Sample
 
 536 catalog bursts → 39 dropped (`excluded_flag == 1`, non-nominal telescope operation) → **497
@@ -30,39 +38,42 @@ All three DM conventions agree: at burst level, this sample's repeaters have sys
 disclosed test. **This is a genuine discrepancy from the original paper's own stated finding**,
 on this project's exact preregistered method — reported honestly, not softened.
 
-### Why this discrepancy likely exists (post-hoc investigation, disclosed as such)
+### Why this discrepancy exists (post-hoc investigation, disclosed as such)
 
-This burst-level discrepancy prompted a specific, narrow follow-up: reading the original paper's
-own methodology more closely, it states (quoted from the paper) that its repeater/non-repeater
-comparisons use **"only the first-detected repeater events for each repeating source"** — i.e.,
-comparing 18 repeater values (one per source) against the non-repeaters, not all 59 individual
-repeater bursts. This project's 59-burst sample is dominated by two exceptionally prolific,
-nearby, low-DM repeaters: FRB 20180916B alone contributes 33 of the 59 repeater bursts (56%) and
-FRB 20180814A contributes 20 more (34%) — together 90% of the repeater sample comes from just 2
-of 18 sources. A burst-level test therefore heavily pseudo-replicates these two sources' unusually
-low DM rather than sampling 59 independent repeater events.
+The original catalog paper states that its repeater/non-repeater comparisons use **"only the first-detected
+repeater events for each repeating source"**, i.e. 18 repeater values (one per source) against the non-repeaters,
+not all 59 individual repeater bursts. The 59 bursts come from 18 sources with very unequal burst counts
+(FRB 20180916B: 19, FRB 20180814A: 8, FRB 20181119A and FRB 20181128A: 3 each, twelve sources with 2, two sources
+with 1). Bursts from one source share that source's dispersion measure: within a source the DM excess differs by
+a few pc/cm³ at most, against hundreds of pc/cm³ between sources. A burst-level test therefore counts each source's
+DM several times, weighted by its burst count. Measured, post-hoc (`reports/v0.2-source-clustering.json`,
+`src/frb_atlas/clustering.py`):
 
-**This was not part of the preregistered protocol.** It is reported here as a disclosed amendment,
-run once, after the primary result was already generated and recorded — not as a substitute for
-the primary finding above, which stands as reported. Reproducing the paper's own
-first-detection-per-source deduplication (n=18 repeater sources) on `dm_exc_ne2001`:
+| Quantity (DM excess, NE2001) | Value |
+| --- | --- |
+| Intraclass correlation of DM within sources | 0.99999 |
+| Kish design effect (cluster size 8.36) | 8.36 |
+| Effective sample size of the 59 repeater bursts | about 7.1 |
+| Source-level KS (18 sources vs 438 non-repeaters) | p = 0.041 (identical for all 10,000 random one-burst-per-source draws, because each source has one DM) |
+| Source-level Mann–Whitney | p = 0.026 |
+| Burst-level KS with any one source removed | p between 2.0×10⁻¹¹ and 4.4×10⁻⁵ (never above 0.01) |
+
+Reading: the burst-level significance (p = 2×10⁻¹⁰) is produced by counting 18 source values 59 times with
+unequal weights, not by one or two sources: removing any single source, including FRB 20180916B, leaves the
+burst-level difference significant. At the unit that is actually independent (the source), the difference is
+marginal: p = 0.041 (KS) and 0.026 (Mann–Whitney) at the preregistered α = 0.05, and not significant at the
+paper's stricter p < 0.01 convention. The first-detection-per-source check below is one instance of this
+collapse and gives the same KS p-value.
+
+**This was not part of the preregistered protocol.** It is reported as a disclosed amendment, run after the primary
+result was generated; the primary finding above stands as reported. This project does not claim the DM
+populations are the same: n = 18 sources is small and the source-level p-values sit near any reasonable threshold.
+
+Reproducing the paper's own first-detection-per-source deduplication (n = 18 repeater sources) on `dm_exc_ne2001`:
 
 | Measure | KS p-value | Anderson–Darling p-value | Median (repeater) | Median (non-repeater) |
 | --- | --- | --- | --- | --- |
 | `dm_exc_ne2001`, first detection per source (post-hoc) | 0.041 | 0.026 | 359.1 pc/cm³ | 510.7 pc/cm³ |
-
-At this project's preregistered α = 0.05, this post-hoc check is still nominally significant.
-However, the paper's own text states it treats **p < 0.01** as the threshold for ">99%
-confidence" the samples differ; at that stricter, paper-consistent threshold, this
-deduplicated check is **not significant** (0.041 and 0.026 are both > 0.01) — much closer to,
-though not a clean replication of, the paper's "consistent with being drawn from the same
-distribution" conclusion. The most defensible honest summary: **the strong DM discrepancy in
-this project's preregistered burst-level test is very likely driven substantially by
-pseudo-replication from a small number of prolific, nearby, low-DM repeating sources**, and
-mostly (not completely) resolves under the paper's own per-source deduplication and significance
-convention. This project does not claim full resolution — n=18 is a small sample and the
-post-hoc p-values (0.041, 0.026) sit close enough to any reasonable threshold that a different
-DM convention, exclusion choice, or added source could plausibly flip the classification.
 
 ## H2 — pulse width and spectral bandwidth: **confirmed, robustly**
 
@@ -126,9 +137,9 @@ supports "sample- and selection-dependent evidence," not a settled two-populatio
   NE2001-subtracted, YMW16-subtracted) agree qualitatively at burst level in this reanalysis, but
   the magnitude of the median difference varies by convention (167–455 pc/cm³ depending on
   measure and CI bound).
-- **Sample composition dominates the burst-level DM result.** Two of 18 repeater sources supply
-  90% of the repeater bursts analyzed; this is disclosed above as the most likely driver of the
-  H1 discrepancy from the paper.
+- **Source clustering dominates the burst-level DM result.** Bursts from one repeating source share its DM
+  (ICC 0.99999), so the 59 repeater bursts behave like about 7 independent observations; see the erratum and
+  Amendment 2. The diagnostics are post-hoc and descriptive.
 - **No independent completeness or selection-function model.** CHIME/FRB's sensitivity to DM,
   pulse width, declination, and Galactic latitude is not independently modeled here; the
   catalog's own derived columns are used as-is.
@@ -147,3 +158,7 @@ supports "sample- and selection-dependent evidence," not a settled two-populatio
   as a deviation from the frozen preregistered plan, added to explain rather than to overturn the
   primary result, and is labeled `*_first_detection_per_source` and marked "POST-HOC (not
   preregistered)" directly in the registry JSON.
+- 2026-10-09 (Amendment 2): the claim that two sources supply 90% of the repeater bursts was found to be
+  incorrect (actual: 27 of 59, 46%) while preparing a paper. The explanation was replaced by measured
+  source-clustering diagnostics (`reports/v0.2-source-clustering.json`; post-hoc, all four diagnostics for all three
+  measures reported). The frozen v0.1 registry is unchanged and regenerates identically.

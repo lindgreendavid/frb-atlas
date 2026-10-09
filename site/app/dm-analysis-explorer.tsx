@@ -112,7 +112,7 @@ export function DmAnalysisExplorer({
         </div>
         <p className="analysis-result__boundary">
           {unit === "bursts"
-            ? "Two prolific repeater sources contribute 90% of these 59 bursts, so the rows are not 59 independent sources."
+            ? "Bursts from one repeating source share its DM, so these 59 rows carry only about 7 independent observations (18 sources)."
             : "Keeping one first detection per repeating source reduces source-level pseudo-replication, but this was a disclosed post-hoc check—not the preregistered test."}
         </p>
       </div>

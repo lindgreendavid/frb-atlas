@@ -85,9 +85,9 @@ def first_detection_per_source(repeaters: list[Burst]) -> list[Burst]:
     This is a post-hoc, non-preregistered robustness view (see the "Amendment"
     section of docs/research-report.md): the original catalog paper's own
     repeater/non-repeater comparison uses only each repeating source's
-    first-detected event, precisely to avoid a handful of especially
-    prolific, nearby, low-DM repeaters (FRB20180916B, FRB20180814A)
-    dominating a burst-level sample through pseudo-replication. The
+    first-detected event, which avoids counting each source's essentially
+    identical DM once per burst (source clustering; see the erratum and
+    Amendment 2 in the research report). The
     preregistered primary analysis in this project instead uses every
     analyzed repeater burst; this function exists only to reproduce the
     paper's own deduplication as a disclosed, separately labeled check.

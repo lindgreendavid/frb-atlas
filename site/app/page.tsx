@@ -108,8 +108,8 @@ export default function Home() {
               <li>
                 Small, unbalanced groups: {catalog.repeater_bursts} repeater bursts from only{" "}
                 {catalog.repeater_sources} sources vs. {catalog.non_repeater_bursts}{" "}
-                non-repeaters. Two of those {catalog.repeater_sources} sources supply 90% of the
-                repeater bursts analyzed here.
+                non-repeaters. Bursts from one source share that source&apos;s DM, so the{" "}
+                {catalog.repeater_bursts} bursts carry about 7 independent DM observations.
               </li>
               <li>
                 &quot;Non-repeater&quot; is a detection-window label, not a guaranteed physical
@@ -172,9 +172,9 @@ export default function Home() {
                 4,
               )}
               , which is not significant at the paper&apos;s own stated p&lt;0.01 threshold. The
-              most likely driver: two of 18 repeater sources supply 90% of the analyzed repeater
-              bursts, so a burst-level test heavily pseudo-replicates those two sources&apos;
-              unusually low DM. Full reasoning:{" "}
+              measured driver: bursts from one repeating source share its DM (intraclass
+              correlation 0.99999), so the 59 bursts have an effective sample size of about 7
+              and a burst-level test counts each source several times. Full reasoning:{" "}
               <a href="https://github.com/lindgreendavid/frb-atlas/blob/main/docs/research-report.md#h1--dm-distributions-falsified-on-this-projects-preregistered-burst-level-test">
                 docs/research-report.md
               </a>
